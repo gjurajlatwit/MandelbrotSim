@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#PBS -l nodes=13:ppn=12,walltime=00:2:30
+#PBS -q batch
+#PBS -N run_lab
+#PBS -j oe
+
+cd /home/gjurajl/PA4/
+#valgrind
+
+mpiexec -np 2 --map-by ppr:1:node --hostfile $PBS_NODEFILE  ./PA4.cx
+mpiexec -np 3 --map-by ppr:1:node --hostfile $PBS_NODEFILE  ./PA4.cx
+mpiexec -np 5 --map-by ppr:1:node --hostfile $PBS_NODEFILE  ./PA4.cx
+mpiexec -np 7 --map-by ppr:1:node --hostfile $PBS_NODEFILE  ./PA4.cx
+mpiexec -np 9 --map-by ppr:1:node --hostfile $PBS_NODEFILE  ./PA4.cx
+mpiexec -np 11 --map-by ppr:1:node --hostfile $PBS_NODEFILE  ./PA4.cx
+mpiexec -np 13 --map-by ppr:1:node --hostfile $PBS_NODEFILE  ./PA4.cx
